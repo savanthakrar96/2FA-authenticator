@@ -1,51 +1,36 @@
-import api from "./api"
+import api from "./api";
 
-export const register = async (username,password) => {
-    return await api.post("/auth/register", {
-        username,
-        password,
-    });
+/* ================= REGISTER ================= */
+export const register = async (username, password) => {
+  return api.post("/auth/register", { username, password });
 };
 
-export const loginUser = async (username,password) => {
-    return await api.post("/auth/login", {
-        username,
-        password,
-    },{
-        withCredentials: true,
-    });
+/* ================= LOGIN ================= */
+export const loginUser = async (username, password) => {
+  return api.post("/auth/login", { username, password });
 };
 
-
+/* ================= AUTH STATUS ================= */
 export const authStatus = async () => {
-    return await api.get("/auth/status", {
-        withCredentials: true,
-    });
+  return api.get("/auth/status");
 };
 
+/* ================= LOGOUT ================= */
 export const logoutUser = async () => {
-    return await api.post("/auth/logout", {},{
-        withCredentials: true,
-    });
+  return api.post("/auth/logout");
 };
 
-
+/* ================= 2FA SETUP ================= */
 export const setup2FA = async () => {
-    return await api.post("/auth/2fa/setup", {},{
-        withCredentials: true,
-    });
+  return api.post("/auth/2fa/setup");
 };
 
-
+/* ================= 2FA VERIFY ================= */
 export const verify2FA = async (token) => {
-    return await api.post("/auth/2fa/verify", { token },{
-        withCredentials: true,
-    });
+  return api.post("/auth/2fa/verify", { token });
 };
 
-
+/* ================= 2FA RESET ================= */
 export const reset2FA = async () => {
-    return await api.post("/auth/2fa/reset", {},{
-        withCredentials: true,
-    });
+  return api.post("/auth/2fa/reset");
 };
